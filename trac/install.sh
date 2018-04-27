@@ -19,24 +19,23 @@ sudo -H pip install Babel
 #sudo -H pip install TracVote
 
 sudo mkdir -p /var/www/trac
-sudo mkdir -p /var/www/trac/git
+#sudo mkdir -p /var/www/trac/git
 
-sudo chown -R 775 /var/www/trac
+#sudo chown -R 775 /var/www/trac
 
 # 이후 스크립트는 프로젝트 생성할 때마다 해주어야 할 것 같다.
-sudo trac-admin /var/www/trac/LocalProjects initenv
-sudo trac-admin /var/www/trac/LocalProjects permission add admin TRAC_ADMIN
+#sudo trac-admin /var/www/trac/LocalProjects initenv
+#sudo trac-admin /var/www/trac/LocalProjects permission add admin TRAC_ADMIN
 sudo bash -c "python ./trac-digest.py -u admin -p YOURPASSWORD -r LocalProects > /var/www/trac/LocalProjects/users.htdigest"
-# I'm not user the command upper is working or not
 
-sudo yes|cp trac.ini /var/www/trac/LocalProjects/conf/
+#sudo cp trac.ini /var/www/trac/LocalProjects/conf/
 
-sudo cp trac.service /lib/systemd/system/
-sudo ln -s /lib/systemd/system/trac.service /etc/systemd/system/trac.service
-sudo cp tracd /etc/default/
+#sudo cp trac.service /lib/systemd/system/
+#sudo ln -s /lib/systemd/system/trac.service /etc/systemd/system/trac.service
+#sudo cp tracd /etc/default/
 
-sudo systemctl enable tracd
-sudo systemctl start tracd
+#sudo systemctl enable tracd
+#sudo systemctl start tracd
 
 echo 'Execute trac with: tracd --port 9000 /var/www/trac/LocalProjects'
 echo 'Test with Mini browser: apt install lynx'
