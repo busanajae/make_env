@@ -1,0 +1,2 @@
+# trac option
+DAEMON_ARGS="--daemonize --port 8000 /var/www/trac/LocalProjects --pidfile=/var/run/tracd/tracd.pid"

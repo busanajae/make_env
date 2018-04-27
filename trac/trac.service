@@ -1,0 +1,22 @@
+[Unit]
+Description=Trac Wiki daemon
+After=syslog.target network.target
+
+[Service]
+Type=forking
+RuntimeDirectory=tracd
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=tracd
+PIDFile=/var/run/tracd/tracd.pid
+EnvironmentFile=/etc/default/tracd
+ExecStart=/usr/bin/tracd $DAEMON_ARGS
+ExecReload=/bin/kill -s SIGHUP $MAINPID
+User=trac
+Group=trac
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=tracd.service

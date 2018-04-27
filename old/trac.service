@@ -1,0 +1,13 @@
+[Unit]
+Description = TrackD Daemon
+After = network.target
+
+[Service]
+ExecStart = /usr/local/bin/tracd -p 3050 --protocol=http --basic-auth="*,/var/www/trac/.htpasswd,Restricted" -s /var/www/trac
+Type = simple
+User = USERNAME
+Group = USERGROUP
+
+[Install]
+WantedBy = multi-user.target
+
