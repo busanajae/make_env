@@ -50,6 +50,7 @@ sudo apt-get install -y jenkins
 #sudo apt-get install -y phpmyadmin
 
 # Settings
+sudo chown -R busanajae:busanajae /home/busanajae/.config
 sudo apt-get autoremove -y
 git config --global user.name "BusanAjae"
 git config --global user.email "busanajae@gmail.com"

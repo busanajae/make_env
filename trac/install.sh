@@ -19,16 +19,16 @@ sudo -H pip install Babel
 #sudo -H pip install TracVote
 
 sudo mkdir -p /var/www/trac
-#sudo mkdir -p /var/www/trac/git
+sudo mkdir -p /var/www/trac/git
 
-#sudo chown -R 775 /var/www/trac
+sudo trac-admin /var/www/trac/LocalProjects initenv
+sudo trac-admin /var/www/trac/LocalProjects permission add admin TRAC_ADMIN
+sudo bash -c "python ./trac-digest.py -u admin -p 14321 -r LocalProects > /var/www/trac/LocalProjects/users.htdigest"
 
-# 이후 스크립트는 프로젝트 생성할 때마다 해주어야 할 것 같다.
-#sudo trac-admin /var/www/trac/LocalProjects initenv
-#sudo trac-admin /var/www/trac/LocalProjects permission add admin TRAC_ADMIN
-sudo bash -c "python ./trac-digest.py -u admin -p YOURPASSWORD -r LocalProects > /var/www/trac/LocalProjects/users.htdigest"
+sudo chown -R 775 /var/www/trac
 
-#sudo cp trac.ini /var/www/trac/LocalProjects/conf/
+sudo rm -rf /var/www/trac/LocalProjects/conf/trac.ini
+sudo cp trac.ini /var/www/trac/LocalProjects/conf/
 
 #sudo cp trac.service /lib/systemd/system/
 #sudo ln -s /lib/systemd/system/trac.service /etc/systemd/system/trac.service

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from optparse import OptionParser
 # The md5 module is deprecated in Python 2.5
 try:
