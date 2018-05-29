@@ -5,6 +5,7 @@
 #sudo apt install -y gitk
 # git는 gitg를 설치하는 것으로 대체한다.
 # gitg가 텍스트가 잘 안 보이는 관계로 '그놈 기능 개선'을 설치한다.
+# merge tool 로써 meld 를 설치한다.
 
 # nodejs 
 #sudo apt install curl
@@ -25,6 +26,8 @@
 # Setting
 git config --global user.name "BusanAjae"
 git config --global user.email "busanajae@gmail.com"
+git config --global color.ui true
+git config --global merge.tool meld
 cd
 mkdir .ssh
 cd .ssh
